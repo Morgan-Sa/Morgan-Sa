@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stylebusca.css" media="screen" />
+    <title>Buscar</title>
+    <script src="http://localhost:3000/person"></script>
+    
+</head>
+<body>
+    <form action="http://localhost:3000/person" method="get" class="formulario">    
+   
+
+        <h1 class="title"><i class="icon icon-mail-1"></i> Buscar</h1>
+         
+         <label class="label">
+             <span>Nome</span>
+             <input type="text" name="nome" class="campo" placeholder="Digite o nome aqui" required="" id="id"/>
+         </label>
+
+         <label class="label"> 
+             
+             <input type="hidden" name="acao" value="enviar"> 
+             <button type="button" class="botao" onclick="buscar()"> Buscar </button>
+             <button type="button" class="botao" onclick="deletar()"> Deletar </button>
+             
+         </label>
+         
+    
+  
+   </form> 
+
+   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+   <script>
+   
+   
+
+    
+function buscar(){
+
+    var id = document.getElementById("id").value
+    console.log("http://localhost:3000/person/"+id)
+    }
+
+    function deletar(){
+        var id = $("#id").val();
+        $.ajax({
+        type: "DELETE",
+        crossDomain: true,
+        url: "http://localhost:3000/person/"+id,
+        dataType: 'json',
+        contentType: "application/json"
+
+
+    })
+    }
+
+    /*function deletar(){
+        var id = document.getElementById("id").removeChild
+        console.log(id)
+    }*/
+    /*function deletar(){
+        var id = $("#id").val();
+        $.ajax({
+    url: "http://localhost:3000/person/"+id,
+    type: 'DELETE',
+    success: function(resultado) {
+        
+    }
+});
+    }
+   */ 
+
+   
+   module.exports = router;
+
+   </script>
+</body>
+</html>
